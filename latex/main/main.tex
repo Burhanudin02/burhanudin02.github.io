@@ -1,100 +1,250 @@
 %-------------------------
-% Rover Resume - Base Template
-% Link: https://github.com/subidit/rover-resume
-%
-% Shows code for various formatting options for different resume sections.
-% Education and Projects have single-line headers; while Experience uses double-line.
-% Some formatting codes are kept inline; consider \newcommand{cmd}{def}.
-% Excludes hyperref and icons for readability; MVP version.
-% Explore other templates for more options.
-% Mix and match as desired. Be consistent with headers and sub-headers.
+% Resume in Latex
+% Author : Jake Gutierrez
+% Based off of: https://github.com/sb2nov/resume
+% License : MIT
 %------------------------
 
-\documentclass[11pt]{article} % fontsize 10pt/11pt/12pt
+\documentclass[11pt]{article}
 
-\usepackage[margin=1in, a4paper]{geometry}
-\setcounter{secnumdepth}{0} % remove section numbering
+\usepackage[T1]{fontenc}
+\usepackage{latexsym}
+\usepackage{lmodern}
+% \usepackage[empty]{fullpage}
+\RequirePackage[
+  a4paper,
+  top=      1in,
+  bottom=   1in,
+  left=     1in,
+  right=    1in,
+]{geometry}
 \usepackage{titlesec}
-\titlespacing{\subsection}{0pt}{*0}{*0} % remove vertical spacing above and below
-\titlespacing{\subsubsection}{0pt}{*0}{*0}
-\titleformat{\section}{\large\bfseries\uppercase}{}{}{}[\titlerule]
-\titleformat*{\subsubsection}{\large\itshape}
+\usepackage{marvosym}
+\usepackage[usenames,dvipsnames]{color}
+\usepackage{verbatim}
 \usepackage{enumitem}
-\setlist[itemize]{noitemsep,left=0pt .. \parindent}
-\pagestyle{empty} % remove page number
+\usepackage[hidelinks]{hyperref}
+\usepackage{fancyhdr}
+\usepackage[english]{babel}
+\usepackage{tabularx}
+\input{glyphtounicode}
+
+
+%----------FONT OPTIONS----------
+% sans-serif
+% \usepackage[sfdefault]{FiraSans}
+% \usepackage[sfdefault]{roboto}
+% \usepackage[sfdefault]{noto-sans}
+% \usepackage[default]{sourcesanspro}
+
+% serif
+% \usepackage{CormorantGaramond}
+% \usepackage{charter}
+
+
+\pagestyle{fancy}
+\fancyhf{} % clear all header and footer fields
+\fancyfoot{}
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0pt}
+
+% Adjust margins
+\addtolength{\oddsidemargin}{-0.5in}
+\addtolength{\evensidemargin}{-0.5in}
+\addtolength{\textwidth}{1in}
+\addtolength{\topmargin}{-.5in}
+\addtolength{\textheight}{1.0in}
+
+\urlstyle{same}
+
+\raggedbottom
+\raggedright
+\setlength{\tabcolsep}{0in}
+
+% Sections formatting
+\titleformat{\section}{
+  \vspace{-4pt}\scshape\raggedright\large\bfseries
+}{}{0em}{}[\color{black}\titlerule \vspace{-5pt}]
+
+% Ensure that generate pdf is machine readable/ATS parsable
 \pdfgentounicode=1
+
+%-------------------------
+% Custom commands
+\newcommand{\resumeItem}[1]{
+  \item\small{
+    {#1 \vspace{-2pt}}
+  }
+}
+
+\newcommand{\resumeSubheading}[4]{
+  \vspace{-2pt}\item
+    \begin{tabular*}{0.97\textwidth}[t]{l@{\extracolsep{\fill}}r}
+      \textbf{#1} & #2 \\
+      \textit{\small#3} & \textit{\small #4} \\
+    \end{tabular*}\vspace{-7pt}
+}
+
+\newcommand{\resumeSubSubheading}[2]{
+    \item
+    \begin{tabular*}{0.97\textwidth}{l@{\extracolsep{\fill}}r}
+      \textit{\small#1} & \textit{\small #2} \\
+    \end{tabular*}\vspace{-7pt}
+}
+
+\newcommand{\resumeProjectHeading}[2]{
+    \item
+    \begin{tabular*}{0.97\textwidth}{l@{\extracolsep{\fill}}r}
+      \small#1 & #2 \\
+    \end{tabular*}\vspace{-7pt}
+}
+
+\newcommand{\resumeSubItem}[1]{\resumeItem{#1}\vspace{-4pt}}
+
+\renewcommand\labelitemii{$\vcenter{\hbox{\tiny$\bullet$}}$}
+
+\newcommand{\resumeSubHeadingListStart}{\begin{itemize}[leftmargin=0.15in, label={}]}
+\newcommand{\resumeSubHeadingListEnd}{\end{itemize}}
+\newcommand{\resumeItemListStart}{\begin{itemize}}
+\newcommand{\resumeItemListEnd}{\end{itemize}\vspace{-5pt}}
+
+%-------------------------------------------
+%%%%%%  RESUME STARTS HERE  %%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 
 \begin{document}
 
+%----------HEADING----------
+% \begin{tabular*}{\textwidth}{l@{\extracolsep{\fill}}r}
+%   \textbf{\href{http://sourabhbajaj.com/}{\Large Sourabh Bajaj}} & Email : \href{mailto:sourabh@sourabhbajaj.com}{sourabh@sourabhbajaj.com}\\
+%   \href{http://sourabhbajaj.com/}{http://www.sourabhbajaj.com} & Mobile : +1-123-456-7890 \\
+% \end{tabular*}
+
 \begin{center}
-	\begin{minipage}{0.5\textwidth}
-		{\Huge\bfseries
-			BURHANUDIN % Name Here
-		} \\ \medskip
-		% Resume Template % Title [optional]
-	\end{minipage} \hfill
-	\begin{minipage}{0.4\textwidth}
-		\raggedleft
-		tugasakhirtahun21@gmail.com \\
-		% Mobile: 123 456 7890 \\
-		www.github.com/Burhanudin02 \\
-		www.linkedin.com/in/burhanudin-898505220/
-	\end{minipage}
+    {\Huge \scshape Burhanudin} \\ \vspace{1pt}
+    \small \href{mailto:tugasakhirtahun21@gmail.com}{tugasakhirtahun21@gmail.com} $|$ 
+    \href{https://www.linkedin.com/in/burhanudin-898505220}{LinkedIn} $|$
+    % \href{https://github.com/NatanaelBimo}{github.com/NatanaelBimo} $|$
+    \href{https://burhanudin02.github.io}{burhanudin02.github.io}
 \end{center}
 
+Biomedical Engineering graduate focused on intelligent medical robotics and AI-driven control systems. Experienced in reinforcement learning for surgical robot simulation, ROS2 and computer vision for autonomous systems, and brain signal acquisition using ECVT technology. Demonstrated hands-on expertise in Python-based ML implementation, robotic control, and experimental neuroimaging research within academic and research environments.
+
+%-----------EXPERIENCE-----------
+\section{Related Experiences}
+  \resumeSubHeadingListStart
+
+    % \resumeSubheading
+    %   {Universitas Gadjah Mada}{Yogyakarta, Indonesia}
+    %   {Research Assistant — Medical Robotics \& AI Control}{Jul 2023 -- Jul 2024}
+    %   \resumeItemListStart
+    %     \resumeItem{Implemented reinforcement learning algorithms for surgical robot control using the da Vinci Research Kit in a simulation environment.}
+    %     \resumeItem{Designed reward shaping and exploration strategies for autonomous needle-pick tasks, improving learning stability and task success rate.}
+    %     \resumeItem{Developed Python-based training pipelines for simulation, evaluation, and performance benchmarking of robotic policies.}
+    %   \resumeItemListEnd
+      
+   \resumeSubheading
+    {Universitas Gadjah Mada}{Yogyakarta, Indonesia}
+    {Assistant Programmer — ROS2 (Autonomous Excavator ERIC Project)}{Apr 2024 -- Nov 2024}
+    \resumeItemListStart
+       \resumeItem{Developed ROS2 nodes for perception and control integration in an autonomous excavator system.}
+       \resumeItem{Implemented computer vision pipelines for object detection and environmental awareness.}
+      %  \resumeItem{Performed system-level integration, debugging, and validation of perception-control modules in a distributed robotic architecture.}
+    \resumeItemListEnd
+
+    \resumeSubheading
+      {C-Tech Labs Edwar Technology}{Tangerang, Indonesia}
+      {Research Intern — Neuroimaging \& Brain Signal Analysis}{Jan 2024 -- Feb 2024}
+      \resumeItemListStart
+        \resumeItem{Performed frequency sweep characterization of a brain signal acquisition module using a function generator and digital oscilloscope, and developed Python-based analysis to compare injected carrier signals with captured neural responses to identify optimal operating frequency.}
+      \resumeItemListEnd
+
+    \resumeSubheading
+      {GAMAFORCE UGM}{Yogyakarta, Indonesia}
+      {Vision \& Control Programmer}{Dec 2022 -- Dec 2024}
+      \resumeItemListStart
+        \resumeItem{Developed vision-based guidance and control algorithms for autonomous aerial systems.}
+        \resumeItem{Integrated computer vision modules with control systems for target tracking and navigation tasks.}
+        \resumeItem{Collaborated within multidisciplinary engineering teams for system testing and field validation.}
+      \resumeItemListEnd
+
+    \resumeSubheading
+      {Jago Robotika}{Yogyakarta, Indonesia}
+      {Student Tutor}{Nov 2024 -- Dec 2025}
+      \resumeItemListStart
+        \resumeItem{Mentored students in robotics fundamentals, programming, and system integration concepts.}
+        \resumeItem{Facilitated hands-on robotics sessions guiding students in developing their own Arduino-based projects integrating sensor inputs and actuator outputs.}
+      \resumeItemListEnd
+
+  \resumeSubHeadingListEnd
+
+
+
+%-----------PROJECTS-----------
+\section{Related Projects}
+    \resumeSubHeadingListStart
+      \resumeProjectHeading
+          {\textbf{Bachelor Thesis Project -- AI-Based Surgical Robot Control} $|$ \emph{Python, Reinforcement Learning}}{}
+          \resumeItemListStart
+            \resumeItem{Developed a reinforcement learning framework for autonomous surgical tool manipulation using the da Vinci Research Kit simulator.}
+            \resumeItem{Engineered reward functions and exploration mechanisms to improve convergence and task success in needle-picking scenarios.}
+            \resumeItem{Conducted comparative analysis of training configurations to identify the most stable and efficient learning strategy.}
+          \resumeItemListEnd
+
+      \resumeProjectHeading
+          {\textbf{Capstone Project -- BISINDO Sign Language Translator App} $|$ \emph{Dataset Generation}}{}
+          \resumeItemListStart
+            \resumeItem{Led end-to-end development of a BISINDO sign language translation system, overseeing data acquisition, preprocessing, and model training workflows.}
+            \resumeItem{Worked with certified BISINDO practitioners to capture structured sign language gesture data for supervised learning.}
+            \resumeItem{Performed dataset annotation, preprocessing, and augmentation to enhance robustness of the sign classification model.}
+          \resumeItemListEnd
+      % \resumeProjectHeading
+      %     {\textbf{IoT-based OHS Monitoring System} $|$ \emph{Sensors, Embedded Systems}}{}
+      %     \resumeItemListStart
+      %       \resumeItem{Developed a safety monitoring system integrating gas sensors and human tracking modules.}
+      %       \resumeItem{Designed electronics and enclosure for reliable operation in harsh industrial environments.}
+      %     \resumeItemListEnd
+      % \resumeProjectHeading
+      %     {\textbf{Non-Invasive for Invant Bilirubin Sensor Interface} $|$ \emph{Sensors, Embedded Systems}}{}
+      %     \resumeItemListStart
+      %       \resumeItem{Developed color to digital and heartbeat sensor interface for biomedical device module.}
+      %       \resumeItem{Designed electronics and PCB for the diplay and interface module.}
+      %     \resumeItemListEnd
+    \resumeSubHeadingListEnd
+
+%-----------EDUCATION-----------
 \section{Education}
-%=================%
-\subsection{University of Post Graduation, City $|$ {\normalfont\itshape Degree Name} \hfill 2024}
-\begin{itemize}
-	\item Cumulative GPA: 3.69
-	\item \textit{magna cum laude} 
-  \item Related Coursework: Computer Architecture, Database Management, Cybersecurity
-\end{itemize}
+  \resumeSubHeadingListStart
+    \resumeSubheading
+      {Universitas Gadjah Mada}{Yogyakarta, Indonesia}
+      {B. Eng. in Biomedical Engineering $|$ GPA: 3.14/4.00}{2021 -- 2026}
+    % \resumeSubheading
+    %   {De Britto College High School}{}
+    %   {Mathematics and Natural Sciences}{Aug. 2018 -- May 2021}
+  \resumeSubHeadingListEnd
 
-\section{Experience}
-%=================%
-\subsection{Company ABC \hfill City, State (or Remote)}
-\subsubsection{Position Title \hfill  Month Year - Month Year}
-\begin{itemize}
-	\item Beginning with your most recent position, describe your experience, skills, and resulting outcomes in bullet or paragraph form.
-	\item Begin each line with an action verb and include details that will help the reader understand your accomplishments, skills, knowledge, abilities, or achievements.
-	\item Quantify where possible. Do not use personal pronouns; each line should be a phrase rather than a full sentence.
-\end{itemize}
 
-\subsection{Position Title \hfill Mar 2020 - Nov 2022}
-\subsubsection{Company XYZ \hfill City, State}
-\begin{itemize}
-	\item XYZ method - Accomplished [X] as measured by [Y], by doing [Z].
-	\item CAR method - Context, Action, Result. 
-	\item STAR method - Situation, Task, Action, Result.
-	\item Be consistent with headers and sub-headers. 
-\end{itemize}
+%
+%-----------PROGRAMMING SKILLS-----------
+\section{Technical Skills}
+ \begin{itemize}[leftmargin=0.15in, label={}]
+  \small{\item{
+    \textbf{Embedded \& Control}{: C/C++, ESP32, Arduino, SBC, System Administration} \\
+    \textbf{Engineering Tools}{: LTSpice, Arduino IDE, ROS, Gazebo, Octave, FreeCAD} \\
+    \textbf{Machine Learning}{: Python} \\
+    \textbf{Languages}{: Bahasa Indonesia (Native), English (C1), Arabic (beginner)}
+  }}
+ \end{itemize}
+% \section{Technical Skills}
+%  \begin{itemize}[leftmargin=0.15in, label={}]
+%     \small{\item{
+%      \textbf{Languages}{: Java, Python, C/C++, SQL (Postgres), JavaScript, HTML/CSS, R} \\
+%      \textbf{Frameworks}{: React, Node.js, Flask, JUnit, WordPress, Material-UI, FastAPI} \\
+%      \textbf{Developer Tools}{: Git, Docker, TravisCI, Google Cloud Platform, VS Code, Visual Studio, PyCharm, IntelliJ, Eclipse} \\
+%      \textbf{Libraries}{: pandas, NumPy, Matplotlib}
+%     }}
+%  \end{itemize}
 
-\section{Certification \& Awards}
-%===============================%
-\begin{enumerate}[label=\null, left=0pt..0pt, itemsep=0pt]
-	\item Some programming bootcamp, Location. \hfill 2023
-	\item Forbes Top 15 Procrastinators under 15. \hfill 2022
-	\item Perticipation award for attending workshop. \hfill 2021
-\end{enumerate}
 
-\section{Skills \& Interests}
-%===========================%
-\begin{description}[itemsep=0pt]
-	\item[Technical] List computer software and programming languages
-	\item[Language] List foreign languages and your level of fluency
-	\item[Laboratory] List scientific / research lab techniques or tools [If Applicable]
-	\item[Interests] List activities you enjoy that may spark interview conversation
-\end{description}
-
-\section{Projects}
-%=================
-\subsection{Project Neme $|$ \normalfont\textit{github.com/project-link} \hfill 2019}
-\begin{itemize}
-  \item Tech used, Language, Frameworks etc.
-  \item Implemented ABC feature
-  \item Optimised XYZ by 50\%
-\end{itemize}
-
+%-------------------------------------------
 \end{document}
